@@ -159,13 +159,12 @@ export function Header() {
       <UtilityNav />
 
       <div className="container-site flex h-16 lg:h-20 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2" aria-label="Colégio Santo André — Início">
-          <span className="grid size-10 shrink-0 place-items-center rounded-sm bg-institutional text-institutional-foreground font-display text-lg">
-            SA
-          </span>
-          <span className="font-display text-base sm:text-lg lg:text-xl leading-tight text-institutional truncate">
-            Colégio Santo André
-          </span>
+        <Link to="/" className="flex items-center shrink-0" aria-label="Colégio Santo André — Início">
+          <img
+            src="/images/logo-csa-horizontal.webp"
+            alt="Colégio Santo André"
+            className="h-11 sm:h-12 lg:h-14 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}
