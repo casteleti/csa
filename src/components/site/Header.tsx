@@ -163,7 +163,7 @@ export function Header() {
           <img
             src="/images/logo-csa-horizontal.webp"
             alt="Colégio Santo André"
-            className="h-11 sm:h-12 lg:h-14 w-auto"
+            className="h-[62px] sm:h-[67px] lg:h-[78px] w-auto"
           />
         </Link>
 
