@@ -1,0 +1,316 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Colégio Santo André — Design System
+ *
+ * Cores institucionais e de segmento, tipografia editorial (Playfair Display)
+ * para títulos e Inter para interface/corpo.
+ *
+ * Todas as cores em oklch; mapeadas em @theme inline para gerar utilitários
+ * Tailwind (bg-institutional, text-seg-infantil, ...).
+ */
+
+@theme inline {
+  /* radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* spacing semântico (manter Tailwind padrão; estes existem como utilitários extra) */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+
+  /* tipografia */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+
+  /* base shadcn (mapeia para tokens semânticos) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* tokens do colégio */
+  --color-institutional: var(--institutional);
+  --color-institutional-foreground: var(--institutional-foreground);
+  --color-institutional-dark: var(--institutional-dark);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+
+  /* segmentos */
+  --color-seg-infantil: var(--seg-infantil);
+  --color-seg-infantil-foreground: var(--seg-infantil-foreground);
+  --color-seg-fund1: var(--seg-fund1);
+  --color-seg-fund1-foreground: var(--seg-fund1-foreground);
+  --color-seg-fund2: var(--seg-fund2);
+  --color-seg-fund2-foreground: var(--seg-fund2-foreground);
+  --color-seg-medio: var(--seg-medio);
+  --color-seg-medio-foreground: var(--seg-medio-foreground);
+
+  /* sidebar (compat shadcn) */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* neutros */
+  --background: oklch(0.99 0.003 95);          /* off-white quente */
+  --foreground: oklch(0.18 0.02 260);          /* texto primário */
+  --surface: oklch(0.975 0.005 95);
+  --surface-elevated: oklch(1 0 0);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 260);
+
+  --muted: oklch(0.96 0.005 250);
+  --muted-foreground: oklch(0.45 0.02 260);
+
+  --accent: oklch(0.95 0.01 250);
+  --accent-foreground: oklch(0.2 0.04 260);
+
+  --border: oklch(0.9 0.008 250);
+  --input: oklch(0.9 0.008 250);
+
+  /* institucional #1A4F9C */
+  --institutional: oklch(0.42 0.15 263);
+  --institutional-foreground: oklch(0.99 0.003 95);
+  --institutional-dark: oklch(0.32 0.13 263);
+
+  /* CTA principal = institucional; secundário = dourado para contraste AA */
+  --primary: var(--institutional);
+  --primary-foreground: var(--institutional-foreground);
+
+  --secondary: oklch(0.96 0.005 250);
+  --secondary-foreground: var(--institutional);
+
+  /* foco visível */
+  --ring: oklch(0.55 0.16 263);
+
+  /* segmentos */
+  --seg-infantil: oklch(0.87 0.18 95);        /* #FFCC00 */
+  --seg-infantil-foreground: oklch(0.2 0.04 80);
+
+  /* Laranja fundamental I — escurecido para garantir contraste AA com texto branco.
+     Mantém identidade visual #F47B20 em chips/ícones/bordas via opacidade. */
+  --seg-fund1: oklch(0.58 0.16 50);
+  --seg-fund1-foreground: oklch(0.99 0.003 95);
+
+  --seg-fund2: oklch(0.55 0.14 258);          /* #2E6DB4 */
+  --seg-fund2-foreground: oklch(0.99 0.003 95);
+
+  --seg-medio: oklch(1 0 0);                  /* #FFFFFF */
+  --seg-medio-foreground: var(--institutional);
+
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.99 0.003 95);
+
+  --chart-1: var(--institutional);
+  --chart-2: var(--seg-fund2);
+  --chart-3: var(--seg-fund1);
+  --chart-4: var(--seg-infantil);
+  --chart-5: var(--institutional-dark);
+
+  --sidebar: oklch(0.99 0.003 95);
+  --sidebar-foreground: oklch(0.18 0.02 260);
+  --sidebar-primary: var(--institutional);
+  --sidebar-primary-foreground: var(--institutional-foreground);
+  --sidebar-accent: oklch(0.95 0.01 250);
+  --sidebar-accent-foreground: var(--institutional);
+  --sidebar-border: oklch(0.9 0.008 250);
+  --sidebar-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  /* skip link */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    background: var(--color-institutional);
+    color: var(--color-institutional-foreground);
+    border-radius: 0 0 var(--radius-sm) 0;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility container-site {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1280px;
+  padding-inline: 1rem;
+}
+@media (min-width: 640px) {
+  .container-site { padding-inline: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  .container-site { padding-inline: 2rem; }
+}
+
+/* ============================================================
+ * Fase 1 — Refinamento visual
+ * Animações sutis, ritmo visual, tipografia mobile, microinterações.
+ * Tudo respeita prefers-reduced-motion.
+ * ============================================================ */
+
+/* Tom suave alternativo para quebrar repetição visual sem peso. */
+@utility bg-surface-warm {
+  background-color: oklch(0.975 0.008 85);
+}
+
+/* Tipografia institucional escalonada (mobile-first, sem perder presença) */
+@utility h-display-1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.4rem + 3vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+@utility h-display-2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 1.2rem + 2vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* Microinteração premium em cards / blocos clicáveis */
+@utility card-lift {
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -18px color-mix(in oklab, var(--institutional) 35%, transparent);
+}
+.card-lift:active {
+  transform: translateY(0);
+  transition-duration: 120ms;
+}
+
+/* Animações editoriais — fade-in e fade-up */
+@keyframes csa-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes csa-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-fade-in {
+  animation: csa-fade-in 600ms ease-out both;
+}
+@utility animate-fade-up {
+  animation: csa-fade-up 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Stagger: aplique em <ul>/<div> com filhos a serem revelados em cascata. */
+@utility stagger-children {
+  & > * {
+    animation: csa-fade-up 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    opacity: 0;
+  }
+  & > *:nth-child(1) { animation-delay: 60ms; }
+  & > *:nth-child(2) { animation-delay: 120ms; }
+  & > *:nth-child(3) { animation-delay: 180ms; }
+  & > *:nth-child(4) { animation-delay: 240ms; }
+  & > *:nth-child(5) { animation-delay: 300ms; }
+  & > *:nth-child(6) { animation-delay: 360ms; }
+  & > *:nth-child(7) { animation-delay: 420ms; }
+  & > *:nth-child(8) { animation-delay: 480ms; }
+}
+
+/* Tap targets mínimos para mobile (acessibilidade WCAG 2.5.5) */
+@media (max-width: 768px) {
+  button,
+  a[role="button"],
+  [data-tap-target] {
+    min-height: 44px;
+  }
+}
+
+/* Respeita usuários com sensibilidade a movimento */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-up,
+  .stagger-children > *,
+  .card-lift {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

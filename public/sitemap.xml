@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: substituir BASE_URL pela URL final do site (ex.: https://colegiosantoandre.org.br) -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc></url>
+  <url><loc>/o-colegio</loc></url>
+  <url><loc>/ensino</loc></url>
+  <url><loc>/ensino/educacao-infantil</loc></url>
+  <url><loc>/ensino/fundamental-i</loc></url>
+  <url><loc>/ensino/fundamental-ii</loc></url>
+  <url><loc>/ensino/ensino-medio</loc></url>
+  <url><loc>/infraestrutura</loc></url>
+  <url><loc>/vida-no-colegio</loc></url>
+  <url><loc>/familia</loc></url>
+  <url><loc>/agendar-visita</loc></url>
+  <url><loc>/matriculas</loc></url>
+</urlset>
